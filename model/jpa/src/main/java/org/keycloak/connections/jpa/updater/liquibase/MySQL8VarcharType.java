@@ -40,7 +40,7 @@ public class MySQL8VarcharType extends VarcharType {
         if (database instanceof MySQLDatabase) {
             try {
                 if (database.getDatabaseMajorVersion() >= 8 && getSize() > 255) {
-                    return new DatabaseDataType(database.escapeDataTypeName("TEXT"), getSize());
+                    return new DatabaseDataType(database.escapeDataTypeName("TEXT"));
                 }
             } catch (DatabaseException e) {
                 throw new RuntimeException(e);
